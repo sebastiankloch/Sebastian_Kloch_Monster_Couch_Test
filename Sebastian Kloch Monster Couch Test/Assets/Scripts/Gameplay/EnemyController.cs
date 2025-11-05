@@ -31,6 +31,7 @@ namespace SK.MonsterCouch.Gameplay
 		{
 			List<Enemy> enemies = new List<Enemy>();
 
+			//Execution order ensures that bounds are calculated before.
 			Rect boundsRect = boundsCreator.GetRect();
 			Enemy enemyTemplate = Instantiate(enemyPrefab, GetRandomPos(boundsRect), Quaternion.identity).GetComponent<Enemy>();
 			enemies.Add(enemyTemplate);

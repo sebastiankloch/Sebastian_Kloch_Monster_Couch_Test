@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40fde3dc9c9e06c41b44454a610f04dd, type: 3}
   m_Name: Enemy Data
   m_EditorClassIdentifier: Assembly-CSharp::SK.MonsterCouch.Gameplay.EnemyData
-  speed: 300
+  speedForce: 300
   disabledColor: {r: 0.22012573, g: 0.13680676, b: 0.038072024, a: 1}
