@@ -23,7 +23,6 @@ namespace SK.MonsterCouch.UI
 		public void PlayButton()
 		{
 			Close();
-			//gameplayManager.StartGame();
 			onGameplayStartEvent.Rise();
 		}
 

@@ -31,7 +31,6 @@ namespace SK.MonsterCouch.Gameplay
 			Vector2 topRight = cam.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height));
 			rect = new Rect(bottomLeft, topRight - bottomLeft);
 
-			//Left
 			CreateBound(
 				"Bound Left",
 				new Vector2(rect.xMin - boundWidth / 2f, rect.center.y),
