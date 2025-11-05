@@ -47,7 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SK.MonsterCouch.Gameplay.Enemy
   ridBy2D: {fileID: 1349383562899757721}
+  spriteRenderer: {fileID: 5520303639571377778}
   speed: 300
+  disabledColor: {r: 0.27672952, g: 0.08961316, b: 0, a: 1}
 --- !u!50 &1349383562899757721
 Rigidbody2D:
   serializedVersion: 5
