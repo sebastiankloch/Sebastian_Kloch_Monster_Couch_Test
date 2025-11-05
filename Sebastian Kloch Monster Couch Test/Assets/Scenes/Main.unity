@@ -1580,6 +1580,7 @@ MonoBehaviour:
   gameplayManager: {fileID: 1481087014}
   mainMenu: {fileID: 1162108788}
   player: {fileID: 2019616344}
+  cam: {fileID: 1880231111}
   onGameplayEndEvent: {fileID: 11400000, guid: df5b675bcc820eb458c1cef8247903a9, type: 2}
 --- !u!4 &1840002705
 Transform:

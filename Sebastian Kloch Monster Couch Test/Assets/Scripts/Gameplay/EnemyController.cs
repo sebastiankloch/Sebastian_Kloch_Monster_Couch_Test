@@ -52,8 +52,11 @@ namespace SK.MonsterCouch.Gameplay
 		{
 			for (int id = 0; id < enemies.Length; id++)
 			{
-				Vector2 vec2 = enemies[id].GetPosition2D() - player.GetPosition2D();
-				enemies[id].Move(vec2.normalized);
+				if (enemies[id].enabled)
+				{
+					Vector2 vec2 = enemies[id].GetPosition2D() - player.GetPosition2D();
+					enemies[id].Move(vec2.normalized);
+				}
 			}
 		}
 

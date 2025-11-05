@@ -6,12 +6,15 @@ namespace SK.MonsterCouch.Gameplay
 {
 	public class GameplayInput : MonoBehaviour
 	{
+		private const float MINIMAL_DISTANCE_TO_MOUSE = 0.1f;
 		[SerializeField]
 		private GameplayManager gameplayManager;
 		[SerializeField]
 		private Window mainMenu;
 		[SerializeField]
 		private Player player;
+		[SerializeField]
+		private Camera cam;
 		[SerializeField]
 		private VoidEvent onGameplayEndEvent;
 
@@ -23,9 +26,7 @@ namespace SK.MonsterCouch.Gameplay
 				{
 					if (Keyboard.current[Key.Escape].wasPressedThisFrame)
 					{
-						//gameplayManager.StopGame();
 						onGameplayEndEvent.Rise();
-						//mainMenu.Open();
 					}
 
 					Vector2 moveVector = Vector2.zero;
@@ -50,8 +51,17 @@ namespace SK.MonsterCouch.Gameplay
 						moveVector += Vector2.left;
 					}
 
-					if (moveVector.sqrMagnitude > 0)
-						player.Move(moveVector);
+					player.Move(moveVector.normalized);
+				}
+
+				if (Mouse.current != null)
+				{
+					if (Mouse.current.leftButton.isPressed)
+					{
+						Vector2 mouseVector = ((Vector2)cam.ScreenToWorldPoint(Mouse.current.position.value) - player.GetPosition2D());
+						if (mouseVector.magnitude > MINIMAL_DISTANCE_TO_MOUSE)
+							player.Move(mouseVector.normalized);
+					}
 				}
 			}
 		}
