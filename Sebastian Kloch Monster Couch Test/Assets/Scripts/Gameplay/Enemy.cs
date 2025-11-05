@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace SK.MonsterCouch.Gameplay
 {
-	public class Player : Unit
+	public class Enemy : Unit
 	{
 		[SerializeField]
 		private Rigidbody2D ridBy2D;

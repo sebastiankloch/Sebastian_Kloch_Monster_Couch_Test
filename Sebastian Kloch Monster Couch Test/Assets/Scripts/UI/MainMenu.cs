@@ -9,11 +9,22 @@ namespace SK.MonsterCouch.UI
 		private Window settings;
 		[SerializeField] 
 		private GameplayManager gameplayManager;
+		[SerializeField]
+		private VoidEvent onGameplayStartEvent;
+		[SerializeField]
+		private VoidEvent onGameplayEndEvent;
+
+		protected override void Start()
+		{
+			base.Start();
+			onGameplayEndEvent.AddListener(Open);
+		}
 
 		public void PlayButton()
 		{
 			Close();
-			gameplayManager.StartGame();
+			//gameplayManager.StartGame();
+			onGameplayStartEvent.Rise();
 		}
 
 		public void OpenSettingsWindow()
@@ -29,6 +40,11 @@ namespace SK.MonsterCouch.UI
 #else
 			Application.Quit();
 #endif
+		}
+
+		private void OnDestroy()
+		{
+			onGameplayEndEvent.RemoveListener(Open);
 		}
 	}
 }

@@ -12,6 +12,8 @@ namespace SK.MonsterCouch.Gameplay
 		private Window mainMenu;
 		[SerializeField]
 		private Player player;
+		[SerializeField]
+		private VoidEvent onGameplayEndEvent;
 
 		private void Update()
 		{
@@ -21,8 +23,9 @@ namespace SK.MonsterCouch.Gameplay
 				{
 					if (Keyboard.current[Key.Escape].wasPressedThisFrame)
 					{
-						gameplayManager.StopGame();
-						mainMenu.Open();
+						//gameplayManager.StopGame();
+						onGameplayEndEvent.Rise();
+						//mainMenu.Open();
 					}
 
 					Vector2 moveVector = Vector2.zero;
