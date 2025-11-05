@@ -8,14 +8,13 @@ namespace SK.MonsterCouch.Gameplay
 		private Rigidbody2D ridBy2D;
 		[SerializeField]
 		private SpriteRenderer spriteRenderer;
+		
 		[SerializeField]
-		private float speed;
-		[SerializeField]
-		private Color disabledColor;
+		private EnemyData data;
 
 		public void Move(Vector2 vector2)
 		{
-			ridBy2D.AddForce(vector2 * speed * Time.deltaTime);
+			ridBy2D.AddForce(vector2 * data.speed * Time.deltaTime);
 		}
 
 		private void Reset()
@@ -28,7 +27,7 @@ namespace SK.MonsterCouch.Gameplay
 			if (collision.gameObject.CompareTag("Player"))
 			{
 				ridBy2D.simulated = false;
-				spriteRenderer.color = disabledColor;
+				spriteRenderer.color = data.disabledColor;
 				enabled = false;
 			}
 		}
