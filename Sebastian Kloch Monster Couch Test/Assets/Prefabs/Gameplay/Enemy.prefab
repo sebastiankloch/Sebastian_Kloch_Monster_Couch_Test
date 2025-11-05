@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SK.MonsterCouch.Gameplay.Enemy
   ridBy2D: {fileID: 1349383562899757721}
-  speed: 3
+  speed: 300
 --- !u!50 &1349383562899757721
 Rigidbody2D:
   serializedVersion: 5

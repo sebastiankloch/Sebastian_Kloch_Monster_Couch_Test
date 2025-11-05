@@ -11,7 +11,7 @@ namespace SK.MonsterCouch.Gameplay
 
 		public void Move(Vector2 vector2)
 		{
-			ridBy2D.linearVelocity = vector2 * speed;
+			ridBy2D.AddForce(vector2 * speed * Time.deltaTime);
 		}
 
 		private void Reset()

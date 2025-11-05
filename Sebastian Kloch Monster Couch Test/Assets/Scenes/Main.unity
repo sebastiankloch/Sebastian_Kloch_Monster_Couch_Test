@@ -489,6 +489,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 4102623256046348975, guid: ffe885dec2b28a749a4b22c0a8d77923, type: 3}
   numberOfEnemiesToSpawn: 1000
   player: {fileID: 2019616344}
+  boundsCreator: {fileID: 1336052959}
   enemies: []
 --- !u!1 &522527096
 GameObject:
@@ -1304,6 +1305,7 @@ MonoBehaviour:
   cam: {fileID: 1880231111}
   onGameplayStartEvent: {fileID: 11400000, guid: ae7f8e04508d8f242834f1f71122ca71, type: 2}
   onGameplayEndEvent: {fileID: 11400000, guid: df5b675bcc820eb458c1cef8247903a9, type: 2}
+  gaObjBounds: []
 --- !u!4 &1336052960
 Transform:
   m_ObjectHideFlags: 0
@@ -2011,7 +2013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   ridBy2D: {fileID: 2019616345}
-  speed: 1
+  speed: 5
 --- !u!50 &2019616345
 Rigidbody2D:
   serializedVersion: 5

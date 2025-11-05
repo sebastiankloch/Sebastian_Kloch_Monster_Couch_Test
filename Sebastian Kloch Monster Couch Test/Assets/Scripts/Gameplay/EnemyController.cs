@@ -17,6 +17,8 @@ namespace SK.MonsterCouch.Gameplay
 		[SerializeField]
 		private Player player;
 		[SerializeField]
+		private BoundsCreator boundsCreator;
+		[SerializeField]
 		private Enemy[] enemies;
 
 		private void Start()
@@ -27,18 +29,23 @@ namespace SK.MonsterCouch.Gameplay
 
 		private void OnGameplayStart()
 		{
-			Debug.Log("Spawn 1000 enemies");
 			List<Enemy> enemies = new List<Enemy>();
 
-			Enemy enemyTemplate = Instantiate(enemyPrefab, new Vector2(Random.Range(-5f, 5f), Random.Range(-5f, 5f)), Quaternion.identity).GetComponent<Enemy>();
+			Rect boundsRect = boundsCreator.GetRect();
+			Enemy enemyTemplate = Instantiate(enemyPrefab, GetRandomPos(boundsRect), Quaternion.identity).GetComponent<Enemy>();
 			enemies.Add(enemyTemplate);
 			for (int i = 0; i < numberOfEnemiesToSpawn; i++)
 			{
-				Enemy enemy = Instantiate(enemyTemplate, new Vector2(Random.Range(-5f, 5f), Random.Range(-5f, 5f)) ,Quaternion.identity).GetComponent<Enemy>();
+				Enemy enemy = Instantiate(enemyTemplate, GetRandomPos(boundsRect), Quaternion.identity).GetComponent<Enemy>();
 				enemies.Add(enemy);
 			}
 
 			this.enemies = enemies.ToArray();
+		}
+
+		private static Vector2 GetRandomPos(Rect boundsRect)
+		{
+			return new Vector2(Random.Range(boundsRect.xMin, boundsRect.xMax), Random.Range(boundsRect.yMin, boundsRect.yMax));
 		}
 
 		private void Update()
