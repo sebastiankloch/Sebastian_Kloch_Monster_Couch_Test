@@ -4,3 +4,6 @@ Sebastian Kloch Monster Couch Test/Library/
 Sebastian Kloch Monster Couch Test/Logs/
 Sebastian Kloch Monster Couch Test/Temp/
 Sebastian Kloch Monster Couch Test/UserSettings/
+*.csproj
+Sebastian Kloch Monster Couch Test/.vs/
+Sebastian Kloch Monster Couch Test/obj/
