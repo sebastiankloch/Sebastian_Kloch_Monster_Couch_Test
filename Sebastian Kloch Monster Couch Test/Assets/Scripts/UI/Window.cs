@@ -18,7 +18,7 @@ namespace SK.MonsterCouch.UI
 
 		private bool opened;
 
-		private void Start()
+		protected virtual void Start()
 		{
 			if (openOnStart)
 				Open();

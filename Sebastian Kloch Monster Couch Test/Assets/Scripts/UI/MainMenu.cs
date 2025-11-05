@@ -1,3 +1,4 @@
+using SK.MonsterCouch.Gameplay;
 using UnityEngine;
 
 namespace SK.MonsterCouch.UI
@@ -6,6 +7,14 @@ namespace SK.MonsterCouch.UI
 	{
 		[SerializeField]
 		private Window settings;
+		[SerializeField] 
+		private GameplayManager gameplayManager;
+
+		public void PlayButton()
+		{
+			Close();
+			gameplayManager.StartGame();
+		}
 
 		public void OpenSettingsWindow()
 		{
@@ -13,7 +22,7 @@ namespace SK.MonsterCouch.UI
 			settings.Open();
 		}
 
-		public void Exit()
+		public void ExitButton()
 		{
 #if UNITY_EDITOR
 			UnityEditor.EditorApplication.isPlaying = false;
