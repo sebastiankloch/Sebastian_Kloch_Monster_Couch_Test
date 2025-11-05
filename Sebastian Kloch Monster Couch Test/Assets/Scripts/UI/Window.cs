@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 namespace SK.MonsterCouch.UI
@@ -9,7 +10,13 @@ namespace SK.MonsterCouch.UI
 		[SerializeField]
 		private bool openOnStart;
 		[SerializeField]
+		private GameObject content;
+		[SerializeField]
 		private Selectable firstToSelect;
+		[SerializeField]
+		private Window backWindow;
+
+		private bool opened;
 
 		private void Start()
 		{
@@ -22,15 +29,39 @@ namespace SK.MonsterCouch.UI
 			if (firstToSelect)
 			{
 				EventSystem.current.SetSelectedGameObject(firstToSelect.gameObject);
-				Debug.Log("I'm here");
 			}
 
-			gameObject.SetActive(true);
+			content.SetActive(true);
+			opened = true;
+		}
+
+		public virtual void Close()
+		{
+			content.SetActive(false);
+			opened = false;
+		}
+
+		private void Update()
+		{
+			if (opened)
+			{
+				if (Keyboard.current != null)
+				{
+					if (Keyboard.current[Key.Escape].wasPressedThisFrame)
+					{
+						Back();
+					}
+				}
+			}
 		}
 
 		public void Back()
 		{
-
+			if (backWindow)
+			{
+				Close();
+				backWindow.Open();
+			}
 		}
 	}
 }
